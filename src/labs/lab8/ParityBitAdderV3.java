@@ -1,10 +1,12 @@
 package labs.lab8;
 
-public class ParityBitAdder {
+import java.util.Scanner;
+
+public class ParityBitAdderV3 {
     String x;
     int parityType;
 
-    public ParityBitAdder(String x, int parityType) throws NonBinaryValue, IllegalParityValue {
+    public ParityBitAdderV3(String x, int parityType) throws NonBinaryValue, IllegalParityValue {
         if (x.length() != 7 || !x.matches("[01]+")) {
             throw new NonBinaryValue();
         }
@@ -30,8 +32,15 @@ public class ParityBitAdder {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a 7-bit binary number: ");
+        String x = sc.next();
+        System.out.println("Enter 0 for even parity or 1 for odd parity: ");
+        int parityType = sc.nextInt();
+        sc.close();
+
         try {
-            ParityBitAdder pba = new ParityBitAdder(args[0], Integer.parseInt(args[1]));
+            ParityBitAdderV3 pba = new ParityBitAdderV3(x, parityType);
             int parity = pba.calculateParity();
             System.out.println("Adding " + switch (pba.parityType) {
                 case 0 -> "even";
