@@ -7,17 +7,17 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class CatchButtonGameV1 {
+public class CatchButtonGameV2 {
     private JFrame frame;
     private JButton[] buttons;
     private int index;
 
-    public CatchButtonGameV1() {
+    public CatchButtonGameV2(int numButtons) {
         frame = new JFrame("Catch me if you can!");
-        buttons = new JButton[9];
+        buttons = new JButton[numButtons];
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new GridLayout(3, 3));
+        frame.setLayout(new GridLayout((int) Math.sqrt(numButtons), (int) Math.sqrt(numButtons)));
         frame.setSize(600, 600);
         frame.setVisible(true);
 
@@ -60,6 +60,6 @@ public class CatchButtonGameV1 {
     }
 
     public static void main(String[] args) {
-        new CatchButtonGameV1();
+        new CatchButtonGameV2(Integer.parseInt(args[0]));
     }
 }
