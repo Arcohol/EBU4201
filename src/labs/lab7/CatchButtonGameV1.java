@@ -8,9 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class CatchButtonGameV1 {
-    JFrame frame;
-    JButton[] buttons;
-    int index;
+    private JFrame frame;
+    private JButton[] buttons;
+    private int index;
 
     public CatchButtonGameV1() {
         frame = new JFrame("Catch me if you can!");
@@ -60,6 +60,6 @@ public class CatchButtonGameV1 {
     }
 
     public static void main(String[] args) {
-        CatchButtonGameV1 game = new CatchButtonGameV1();
+        new CatchButtonGameV1();
     }
 }
